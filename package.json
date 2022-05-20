@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db-server": "npm run --prefix backend db-server",
     "server": "npm run --prefix backend start",
     "client": "npm run --prefix frontend start",
     "app-install": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "start": "concurrently \"npm run server\" \"npm run client\" "
+    "start": "concurrently \"npm run db-server\" \"npm run server\" \"npm run client\" "
   },
   "keywords": [],
   "author": "",
