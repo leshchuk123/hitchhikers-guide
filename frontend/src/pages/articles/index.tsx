@@ -8,7 +8,7 @@ const ArticlesPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:3001/articles');
+      const response = await fetch('http://localhost:3001/api/articles');
       const json: { items: IArticle[] } = await response.json();
       const { items } = json;
       console.log({ items });
