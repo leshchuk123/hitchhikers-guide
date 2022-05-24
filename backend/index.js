@@ -1,9 +1,10 @@
+// const fs = require('fs');
+// const { lorem } = require('faker');
+
 const express = require('express');
 const bodyParser = require('body-parser');
-const fs = require('fs');
 const cors = require('cors');
-const request = require('request');
-const { lorem } = require('faker');
+const fetch = require('node-fetch');
 
 const app = express();
 const port = 3001;
@@ -16,15 +17,19 @@ app.get('/', (req, res) => {
   res.send(`Express server run on port ${port}! Everything is good!`);
 });
 
-app.get('/articles', (req, res) => {
-  request(
-    'http://localhost:3002/articles',
-    (err, response, body) => {
-      if (err) return res.status(500).send({ message: err });
-      return res.status(response.status).send({ items: JSON.parse(body) });
-    }
-  );
+app.get('/api/articles', async (req, res) => {
+  try {
+    const response = await fetch('http://localhost:3002/articles');
+    const data = await response.json();
+    res.status(response.status).send({ items: data });
+  } catch (err) {
+    console.log({err})
+    res.status(500).send({ message: err });
+  }
 });
 
+// app.post('/api/articles', (req, res) => {
+  
+// })
 
 app.listen(port, () => console.log(`Listening http://localhost:${port}!`));
