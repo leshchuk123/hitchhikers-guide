@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container, { FlexBlock } from "../Container";
+import { FlexBlock } from "../Container";
 
 export const BannersContainer = styled(FlexBlock)`
   height: calc(100vh - 52px);
