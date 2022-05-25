@@ -1,17 +1,23 @@
 import * as React from 'react';
 import Container from '../Container';
-import Navigation from '../Navigation';
+import { StyledNavLink, StyledNavMenu } from '../Navigation';
 
-import styles from './header.module.scss';
+import { StyledHeader } from './StyledHeader';
+import { StyledTitle } from './StyledTitle';
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <Container className={styles.container}>
-        <div className={styles.title}>The Hitchhiker's Guide to the Galaxy</div>
-        <Navigation className="header" />
+    <StyledHeader>
+      <Container flex align='center' justify='space-between'>
+        <StyledTitle>
+          The Hitchhiker's Guide to the <del>Galaxy</del> Frontend
+        </StyledTitle>
+        <StyledNavMenu className="header">
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <StyledNavLink to="/articles">Articles</StyledNavLink>
+        </StyledNavMenu>
       </Container>
-    </header>
+    </StyledHeader>
   );
 };
 

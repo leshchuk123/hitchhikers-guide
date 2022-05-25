@@ -1,17 +1,32 @@
-import React, { FC, PropsWithChildren } from 'react';
+import styled from "styled-components";
+import { breakpoints } from "../../constants/breakpoints";
+import { IContainer } from "../../interfaces";
 
-import { IStylable } from '../../interfaces';
+const Container = styled.div<IContainer>`
+  padding: 0 20px;
 
-import './container.scss';
+  display: ${props => props.flex ? "flex" : "block"};
+  flex-direction: ${props => props.direction || "unset"};
+  align-items: ${props => props.align || "unset"};
+  justify-content: ${props => props.justify || "unset"};
 
-const Container: FC<PropsWithChildren<IStylable>> = (props) => {
-  const { className = '', style = {}, children } = props;
-
-  return (
-    <div className={`container ${className}`} style={style}>
-      {children}
-    </div>
-  );
-};
+  @media screen and (min-width: ${breakpoints.lg}) {
+    max-width: ${ breakpoints.lg };
+    margin: 0 auto;
+  }
+`;
 
 export default Container;
+
+export const PageContainer = styled(Container)`
+  min-height: 100vh;
+  padding-top: 52px;
+  padding-bottom: 100px;
+`;
+
+export const FlexBlock = styled.div<Omit<IContainer, "flex">>`
+  display: flex;
+  flex-direction: ${props => props.direction || "unset"};
+  align-items: ${props => props.align || "unset"};
+  justify-content: ${props => props.justify || "unset"};
+`;

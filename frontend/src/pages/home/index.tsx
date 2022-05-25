@@ -1,19 +1,20 @@
 import * as React from 'react';
+import { AlarmBanner, AnswerBanner, BannersBlock, BannersContainer } from '../../components/Banner/home';
 
 import styles from './home.module.scss';
 
 const HomePage = () => {
   return (
-    <div className={styles.alarmBlock}>
-      <div className={styles.messageBlock}>
-        <div className={styles.alarmMessage}>DON'T PANIC</div>
-        <div className={styles.answerMessage}>
+    <BannersContainer align="center" justify="center" >
+      <BannersBlock direction='column'>
+        <AlarmBanner>DON'T PANIC</AlarmBanner>
+        <AnswerBanner>
           The Answer to the Ultimate Question of Life, the Universe, and Everything is
           <br />
-          <span className={styles.answer}>42!</span>
-        </div>
-      </div>
-    </div>
+          <span className="answer">42!</span>
+        </AnswerBanner>
+      </BannersBlock>
+    </BannersContainer>
   );
 };
 

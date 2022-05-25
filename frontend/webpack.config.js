@@ -50,7 +50,6 @@ module.exports = {
       }, 
       {
         test: /(?<!\.module)\.scss$/,
-        // loader: ["style-loader", "css-loader", "sass-loader"],
         use: [ 
           { loader: "style-loader" },  // to inject the result into the DOM as a style block
           {
@@ -60,6 +59,15 @@ module.exports = {
             }
           },
           { loader: "sass-loader" }
+        ]
+      }, 
+      {
+        test: /\.css$/,
+        use: [ 
+          { loader: "style-loader" },  // to inject the result into the DOM as a style block
+          {
+            loader: "css-loader"
+          }
         ]
       }, 
     ]

@@ -1,19 +1,26 @@
-import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-import { IStylable } from '../../interfaces';
+export const StyledNavMenu = styled.nav`
+  &.header {
+    display: flex;
+    gap: 10px;
+  }
+`;
 
-import './navigation.scss';
+export const StyledNavLink = styled(NavLink)`
+  ${StyledNavMenu}.header & {
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px;
 
-const Navigation: FC<IStylable> = (props) => {
-  const { className = '', style = {} } = props;
+    &.active {
+      color: #888888;
+      cursor: default;
+    }
 
-  return (
-    <nav {...{ className, style }}>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/articles">Articles</NavLink>
-    </nav>
-  );
-};
-
-export default Navigation;
+    &:hover:not(.active) {
+      background-color: #555555;
+    }
+  }
+`;

@@ -1,0 +1,7 @@
+@import "../../../styles/mixins.scss";
+
+.controls {
+  @include flex-centred;
+  gap: 10px;
+  padding: 20px 0;
+}
