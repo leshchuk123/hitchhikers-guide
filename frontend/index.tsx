@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./src/App";
 
-import "./styles/common.scss";
+import "./src/styles/common.scss";
 
 const container = document.getElementById('root');
 // createRoot(container!) if you use TypeScript
