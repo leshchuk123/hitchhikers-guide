@@ -30,3 +30,8 @@ export const FlexBlock = styled.div<Omit<IContainer, "flex">>`
   align-items: ${props => props.align || "unset"};
   justify-content: ${props => props.justify || "unset"};
 `;
+
+export const ButtonsContainer = styled(FlexBlock)`
+  gap: 10px;
+  padding: 20px 0;
+`;
