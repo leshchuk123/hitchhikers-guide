@@ -1,5 +1,16 @@
 const fs = require('fs');
 // const { lorem } = require('faker');
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4
+  }
+});
 
 const express = require('express');
 const bodyParser = require('body-parser');
