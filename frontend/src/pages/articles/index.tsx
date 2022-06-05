@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { ArticlesList } from '../../components/Articles/List';
 import { IArticle } from '../../interfaces/data';
-
-import styles from './articles.module.scss';
 
 const ArticlesPage = () => {
   const [data, setData] = useState<IArticle[]>([]);
@@ -11,7 +10,6 @@ const ArticlesPage = () => {
       const response = await fetch('http://localhost:3001/api/articles');
       const json: { items: IArticle[] } = await response.json();
       const { items } = json;
-      console.log({ items });
       setData(items);
     }
     fetchData();
@@ -20,12 +18,7 @@ const ArticlesPage = () => {
   return (
     <>
       <h1>ArticlesPage</h1>
-      {data.map((item) => (
-        <div key={`article/${item.id}`} className={styles.row}>
-          <div className={styles.article_title}>{item.title}</div>
-          <div className={styles.article_desc}>{item.description}</div>
-        </div>
-      ))}
+      <ArticlesList data={data} />
     </>
   );
 };

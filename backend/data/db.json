@@ -1,10 +1,11 @@
 {
   "articles": [
     {
-      "id": 0,
-      "title": "How it all came about",
-      "description": "An article about how this template was created",
-      "date": "2022-05-20T18:06:03.960Z"
+      "title": "Как строился бойлерплейт?",
+      "description": "Заметки о строительстве (changed)",
+      "dateCreated": "2022-06-04T21:01:00.802Z",
+      "dateModified": "2022-06-05T10:51:01.146Z",
+      "id": 0
     }
   ]
 }
